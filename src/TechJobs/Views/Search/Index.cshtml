@@ -1,6 +1,6 @@
 ﻿<h1>@ViewBag.title</h1>
 
-<form action="/Search/Results" method="post">
+<form method="post">
     <h2>Search by:</h2>
 
     <p>
@@ -33,17 +33,28 @@
 }
 else
 {
-<h3>@ViewBag.jobs.Count Result(s)</h3>
+    <h3>@ViewBag.jobs.Count Result(s)</h3>
 
-@foreach (Dictionary<string, string> job in ViewBag.jobs)
-{
-    for (int i = 0; i < job.Count; i++)
+    @foreach (Dictionary<string, string> job in ViewBag.jobs)
+
     {
-        <p><strong>@job.Keys.ElementAt(i)</strong>  @job[job.Keys.ElementAt(i)]</p>
+        <table class="job-listing">
+            @for (int i = 0; i < job.Count; i++)
+
+            {
+                <tr>
+                    <td>@job.Keys.ElementAt(i)</td>
+                    <td> @job[job.Keys.ElementAt(i)]</td>
+                </tr>
+
+            }
+
+        </table>
     }
-}
 
 }
+
+
 
 
 @*// TODO #2 - Loop over jobs dictionary and display all job fields*@

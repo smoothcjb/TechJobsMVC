@@ -46,7 +46,7 @@ namespace TechJobs.Models
         /**
          * Search all columns for the given term
          */
-        public static List<Dictionary<string, string>> FindByValue(string value)
+        public static List<Dictionary<string, string>> FindByValue(string column, string value)
         {
             // load data, if not already loaded
             LoadData();
@@ -59,7 +59,7 @@ namespace TechJobs.Models
                 foreach (string key in row.Keys)
                 {
                     string aValue = row[key];
-
+                   
                     if (aValue.ToLower().Contains(value.ToLower()))
                     {
                         jobs.Add(row);
