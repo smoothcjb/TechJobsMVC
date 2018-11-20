@@ -22,7 +22,6 @@ namespace TechJobs.Controllers
         {
             ViewBag.columns = ListController.columnChoices;
             ViewBag.title = "Search";
-
             return RedirectToAction("Results", "Search", new { searchType = searchType, searchTerm = searchTerm });
         }
         public IActionResult Results(string searchType, string searchTerm)
@@ -35,6 +34,7 @@ namespace TechJobs.Controllers
                 ViewBag.jobs = jobsList;
                 ViewBag.columns = ListController.columnChoices;
                 return View("Index");
+                
             } 
             if (searchType.Equals("all"))
             {
